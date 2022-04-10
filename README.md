@@ -18,23 +18,17 @@
 
 ## **So, what is Recipe Exchange?**
 
----
-
 A website that functions as an online food resource for home cooks. At Recipe Exchange, you will be able to find recipes that suit any occasion, such as meal prepping for a meeting with your prospective in-laws, for your loved ones and more. If you ever run out of inspiration, we can personalize your menu as well! Find the recipes that suit you today!
 
 As a user, you will be able to create new recipes to share with others alike, search for a recipe to cook, delete your existing recipes, and more!
 
 ## **Project Demo**
 
----
-
 **Desktop Preview:**
 
 ![Demo Video of Recipe Exchange]()
 
 ## **CRUD Operations Implemented**
-
----
 
 **User Profile / Account**
 
@@ -55,8 +49,6 @@ As a user, you will be able to create new recipes to share with others alike, se
 - Delete existing recipes
 
 ## **TODO**
-
----
 
 **User Profile / Account**
 
@@ -82,8 +74,6 @@ As a user, you will be able to create new recipes to share with others alike, se
 
 ## **Optional**
 
----
-
 **User Profile / Account**
 
 - Remember user account
@@ -92,3 +82,5 @@ As a user, you will be able to create new recipes to share with others alike, se
 **Others**
 
 - Users are able to sign up for the website newsletter
+
+***
