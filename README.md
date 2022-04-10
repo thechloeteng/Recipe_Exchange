@@ -26,7 +26,7 @@ As a user, you will be able to create new recipes to share with others alike, se
 
 **Desktop Preview:**
 
-![Demo Video of Recipe Exchange]()
+https://user-images.githubusercontent.com/97730901/162627169-c1962704-a7d7-4c8e-9fdf-6acb45576d5e.mp4
 
 ## **CRUD Operations Implemented**
 
