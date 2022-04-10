@@ -1,0 +1,3381 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+#inner {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* remove or add either of these 
+classes in js to show pop up */
+.showBox {
+    display: block;
+}
+
+.hideBox {
+    display: none !important;
+    /* opacity: 0; */
+}
+
+.showDropdown {
+    visibility: visible;
+}
+
+.hideDropdown {
+    visibility: hidden;
+}
+
+/* remove or add this class in js 
+for dropdown menu animation */
+.dropdownAni {
+    animation-name: dropdownFadeIn, dropdownSlideIn;
+    animation-duration: 1.2s, 1.2s;
+    animation-timing-function: linear, cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reverseDropdownAni {
+    animation-name: reverseDropdownFadeIn, reverseDropdownSlideIn;
+    animation-duration: 1.2s, 1.2s;
+    animation-timing-function: linear, cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* remove or add this class in js 
+for promo banner animation */
+.bannerAni {
+    animation-name: promoBannerSlideIn;
+    animation-duration: 1.4s;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* appear ani for the popups */
+@keyframes popUpFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* dropdown menu ani slide in */
+@keyframes dropdownFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* dropdown menu ani slide in */
+@keyframes dropdownSlideIn {
+    0% {
+        margin-top: -30px;
+    }
+    
+    100% {
+        margin-top: 15px;
+    }
+}
+
+/* dropdown menu ani slide out */
+@keyframes reverseDropdownFadeIn {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* dropdown menu ani slide out */
+@keyframes reverseDropdownSlideIn {
+    0% {
+        margin-top: 15px;
+    }
+    
+    100% {
+        margin-top: -5px;
+    }
+}
+
+@keyframes promoBannerSlideIn {
+    0% {
+        opacity: 0;
+        margin-top: -40px;
+    }
+    
+    100% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+/* 1. login to website pop up */
+.loginCont {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation-name: popUpFadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.loginBanner {
+    width: 68rem;
+    padding-top: 1.5rem;
+    padding-bottom: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0rem 2rem 4rem #f1a71d6c;
+    background-color: #fff;
+}
+
+.loginBanner .closeBtn {
+    background: transparent;
+    border: none;
+    color: #f1a81d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 1.8rem;
+}
+
+.loginBanner .closeBtn .closeIcon {
+    font-size: 3.8rem;
+}
+
+.loginBanner .content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginBanner .content .loginLogo {
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.3rem;
+    color: #f1a81d;
+}
+
+.loginBanner .content h6 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.5;
+    color: #202020;
+    text-align: center;
+    display: block;
+    width: 70%;
+    padding-top: 1.6rem;
+}
+
+.loginBanner .content ul li {
+    list-style-type: none;
+    padding-top: 3.6rem;
+}
+
+.loginBanner .content ul li:last-child {
+    list-style-type: none;
+    padding-top: 2.8rem;
+}
+
+.loginBanner .content .bottomSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.loginBanner .content .emailIcon, .loginBanner .content .passwordIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-top: 2.65rem;
+    padding-left: 2.2rem;
+}
+
+.loginBanner .content .emailBox input[value], .loginBanner .content .passwordBox input[value] {
+    color: #202020;
+}
+
+.loginBanner .content .emailBox input[type="email"]::placeholder, .loginBanner .content .passwordBox input[type="password"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.loginBanner .content .emailBox input[type="email"]:focus, .loginBanner .content .passwordBox input[type="password"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.loginBanner .content .emailBox input[type="email"]:focus, .loginBanner .content .passwordBox input[type="password"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.loginBanner .content .errorBox {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.loginBanner .content p {
+    flex-basis: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+.loginBanner .content .rmbMeBox {
+    position: relative;
+    flex-basis: 38%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* hides the default check box, just need the state to do stuff */
+.loginBanner .content .rmbMeBox input[type="checkbox"] {
+    position: absolute;
+    display: none;
+}
+
+.loginBanner .content .rmbMeBox input[type="checkbox"]:checked ~ .tickMark {
+    display: block;
+}
+
+/* custom checkbox */
+.loginBanner .content .rmbMeBox .tickBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 5px;
+    border: 2px solid #cfcfcf;
+}
+
+/* tick mark inside custom checkbox */
+.loginBanner .content .rmbMeBox .tickMark {
+    display: none;
+    position: absolute;
+    left: 0.8rem;
+    transform: rotate(40deg);
+    width: 0.752rem;
+    height: 1.051rem;
+    border: solid #f1a81d;
+    border-width: 0 3px 3px 0;
+}
+
+.loginBanner .content .bottomSect .rmbMeBox p {
+    padding-left: 3.6rem;
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: #202020;
+}
+
+.loginBanner .content .bottomSect .rmbMeBox + p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: #b8b8b8;
+    flex-basis: 62%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.loginBanner .content .bottomSect .rmbMeBox + p a {
+    color: #cfcfcf;
+}
+
+.loginBanner .content .bottomSect .rmbMeBox + p a:hover {
+    border-bottom: 2px solid #f1a81d;
+}
+
+.loginBanner .content ul li .loginBtn {
+    width: 44rem;
+    height: 7.2rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    border: none;
+    background-color: #f1a81d;
+    color: #fff;
+}
+
+.loginBanner .content ul li .loginBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.loginBanner .content ul li:nth-child(4) + li p {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: #b8b8b8;
+}
+
+.loginBanner .content ul li:nth-child(4) + li p a {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #f1a81d;
+    padding-left: 0.5rem;
+    text-decoration: underline;
+}
+
+/* 2. sign up to website pop up */
+.signUpCont {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation-name: popUpFadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.signUpBanner {
+    width: 70rem;
+    padding-top: 1.5rem;
+    padding-bottom: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0rem 2rem 4rem #f1a71d6c;
+    background-color: #fff;
+}
+
+.signUpBanner .closeBtn {
+    background: transparent;
+    border: none;
+    color: #f1a81d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 1.8rem;
+}
+
+.signUpBanner .closeBtn .closeIcon {
+    font-size: 3.8rem;
+}
+
+.signUpBanner .content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpBanner .content .signUpLogo {
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.3rem;
+    color: #f1a81d;
+}
+
+.signUpBanner .content h6 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.5;
+    color: #202020;
+    text-align: center;
+    display: block;
+    width: 63%;
+    padding-top: 2rem;
+}
+
+.signUpBanner .content ul li {
+    list-style-type: none;
+    padding-top: 3.6rem;
+}
+
+.signUpBanner .content ul li:last-child {
+    list-style-type: none;
+    padding-top: 2.8rem;
+}
+
+.signUpBanner .content .bottomSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.signUpBanner .content .usernameIcon, 
+.signUpBanner .content .emailIcon, 
+.signUpBanner .content .passwordIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-top: 2.65rem;
+    padding-left: 2.2rem;
+}
+
+.firstNameBox input[type="text"], 
+.lastNameBox input[type="text"] {
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 7.7rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.signUpBanner .content .firstNameBox input[value],
+.signUpBanner .content .lastNameBox input[value],
+.signUpBanner .content .usernameBox input[value], 
+.signUpBanner .content .emailBox input[value], 
+.signUpBanner .content .passwordBox input[value] {
+    color: #202020;
+    padding-left: 6.1rem;
+}
+
+.signUpBanner .content .firstNameBox input[type="text"]::placeholder,
+.signUpBanner .content .lastNameBox input[type="text"]::placeholder,
+.signUpBanner .content .usernameBox input[type="text"]::placeholder, 
+.signUpBanner .content .emailBox input[type="email"]::placeholder, 
+.signUpBanner .content .passwordBox input[type="password"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.signUpBanner .content .firstNameBox input[type="text"]:focus, 
+.signUpBanner .content .lastNameBox input[type="text"]:focus,
+.signUpBanner .content .usernameBox input[type="text"]:focus, 
+.signUpBanner .content .emailBox input[type="email"]:focus, 
+.signUpBanner .content .passwordBox input[type="password"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.signUpBanner .content .errorBox {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.signUpBanner .content .errorBox2 {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.signUpBanner .content p {
+    flex-basis: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+.signUpBanner .content ul li .signUpBtn {
+    width: 44rem;
+    height: 7.2rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    border: none;
+    background-color: #f1a81d;
+    color: #fff;
+    margin-left: 0rem;
+}
+
+.signUpBanner .content ul li .signUpBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.signUpBanner .content ul li:nth-child(6) + li p {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: #b8b8b8;
+}
+
+.signUpBanner .content ul li:nth-child(6) + li p a {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #f1a81d;
+    padding-left: 0.5rem;
+    text-decoration: underline;
+}
+
+/* 3. subscribe to newsletter pop up */
+.subscribeCont {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation-name: popUpFadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.subscribeBanner {
+    width: 75rem;
+    padding-top: 1.5rem;
+    padding-bottom: 7.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0rem 2rem 4rem #f1a71d6c;
+    background-color: #fff;
+}
+
+.subscribeBanner .closeBtn {
+    background: transparent;
+    border: none;
+    color: #f1a81d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 1.8rem;
+}
+
+.subscribeBanner .closeBtn .closeIcon {
+    font-size: 3.8rem;
+}
+
+.subscribeBanner .content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribeBanner .content h4 {
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 4.3rem;
+    line-height: 1.4;
+    color: #202020;
+    text-align: center;
+    display: block;
+    width: 80%;
+}
+
+.subscribeBanner .content .subscribeBox {
+    margin-top: 3rem;
+}
+
+.subscribeBanner .content .errorBox {
+    padding-left: 1.5rem;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.subscribeBanner .content p {
+    text-align: center;
+    flex-basis: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.subscribeBanner .subscribeBox input[type="email"] {
+    border: 3px solid #cfcfcf;
+    width: 34rem;
+    height: 5.3rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    margin-right: 2.4rem;
+}
+
+.subscribeBanner .subscribeBox input[value] {
+    color: #202020;
+    padding-left: 2rem;
+}
+
+.subscribeBanner .subscribeBox input[type="email"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.subscribeBanner .subscribeBox input[type="email"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0rem;
+}
+
+.subscribeBanner .subscribeBox .subscribeBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.43rem 2.8rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* 4. are you sure you want to...? pop up */
+.confirmUsernameChangeCont, .confirmEmailChangeCont, .confirmPasswordChangeCont {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    animation-name: popUpFadeIn;    
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+}
+
+.confirmChangeBanner {
+    width: 68rem;
+    padding-top: 1.5rem;
+    padding-bottom: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0rem 2rem 4rem #f1a71d6c;
+    background-color: #fff;
+}
+
+.confirmChangeBanner .closeBtn {
+    background: transparent;
+    border: none;
+    color: #f1a81d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 1.8rem;
+}
+
+.confirmChangeBanner .closeBtn .closeIcon {
+    font-size: 3.8rem;
+}
+
+.confirmChangeBanner .content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmChangeBanner .content .confirmChangeLogo {
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.3rem;
+    color: #f1a81d;
+}
+
+.confirmChangeBanner .content h6 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.5;
+    color: #202020;
+    text-align: center;
+    display: block;
+    width: 48%;
+    padding-top: 2rem;
+}
+
+.confirmChangeBanner .content ul li {
+    list-style-type: none;
+    padding-top: 3.6rem;
+}
+
+.confirmChangeBanner .content ul li:last-child {
+    list-style-type: none;
+    padding-top: 2.8rem;
+}
+
+.confirmChangeBanner .content .bottomSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.confirmChangeBanner .content .usernameIcon, 
+.confirmChangeBanner .content .emailIcon, 
+.confirmChangeBanner .content .passwordIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-top: 2.65rem;
+    padding-left: 2.2rem;
+}
+
+.confirmChangeBanner .content .usernameBox input[value], 
+.confirmChangeBanner .content .emailBox input[value],
+.confirmChangeBanner .content .passwordBox input[value] {
+    color: #202020;
+    padding-left: 6.1rem;
+}
+
+.confirmChangeBanner .content .usernameBox input[type="text"]::placeholder,
+.confirmChangeBanner .content .emailBox input[type="email"]::placeholder,
+.confirmChangeBanner .content .passwordBox input[type="password"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.confirmChangeBanner .content .usernameBox input[type="text"]:focus,
+.confirmChangeBanner .content .emailBox input[type="email"]:focus,
+.confirmChangeBanner .content .passwordBox input[type="password"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.confirmChangeBanner .content .errorBox {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.confirmChangeBanner .content .errorBox p {
+    flex-basis: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+.confirmChangeBanner .content ul li .buttonsSect {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.confirmChangeBanner .content ul li .cancelBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    color: #B8B8B8;
+}
+
+.confirmChangeBanner .content ul li .cancelBtn:hover {
+    border: 2px solid #f1a81d;
+    border-radius: 5px;
+    transition: 0.35s;
+    cursor: pointer;
+    padding: 1.5rem 4rem;
+}
+
+.confirmChangeBanner .content ul li .saveBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 4rem;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 3.5rem;
+}
+
+.confirmChangeBanner .content ul li .saveBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* 5. add recipe to website pop up */
+.addRecipeCont {
+    z-index: 3;
+    position: fixed;
+    top: 50.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation-name: popUpFadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.addRecipeBanner {
+    padding-left: 1rem;
+    width: 114rem;
+    padding-top: 1.5rem;
+    padding-bottom: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0rem 2rem 4rem #f1a71d6c;
+    background-color: #fff;
+}
+
+.addRecipeBanner .closeBtn {
+    background: transparent;
+    border: none;
+    color: #f1a81d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 1.8rem;
+}
+
+.addRecipeBanner .closeBtn .closeIcon {
+    font-size: 3.8rem;
+}
+
+.addRecipeBanner .content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addRecipeBanner .content .topSect {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.addRecipeBanner .content .topSect .leftSect {
+    flex-basis: 50%;
+}
+
+.addRecipeBanner .content .topSect .rightSect {
+    padding-left: 5.2rem;
+    flex-basis: 50%;
+}
+
+.addRecipeBanner .content .addRecipeLogo {
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.3rem;
+    color: #f1a81d;
+}
+
+.addRecipeBanner .content h6 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 1.5;
+    color: #202020;
+    text-align: center;
+    display: block;
+    width: 63%;
+    padding-top: 2rem;
+}
+
+.addRecipeBanner .content .errorBox {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.addRecipeBanner .content .errorBox p {
+    flex-basis: 100%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+.addRecipeBanner .content ul li {
+    list-style-type: none;
+    padding-top: 3.8rem;
+}
+
+.addRecipeBanner .content ul li:last-child {
+    list-style-type: none;
+    padding-top: 2.8rem;
+}
+
+.addRecipeBanner .content .bottomSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.addRecipeBanner .content .recipeIcon, 
+.addRecipeBanner .content .prepTimeIcon, 
+.addRecipeBanner .content .serveApproxIcon,
+.addRecipeBanner .content .ingrRequiredIcon, 
+.addRecipeBanner .content .addiNotesIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-top: 2.65rem;
+    padding-left: 2.2rem;
+}
+
+.addRecipeBanner .content .diffLevelIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-left: 2.2rem;
+}
+
+/* dropdown container */
+.addRecipeBanner .content .diffLevelCont {
+    width: 44rem;
+    height: auto;
+}
+
+.addRecipeBanner .content .diffLevelBox {
+    border: 3px solid #cfcfcf;
+    border-radius: 5px 5px 0px 0px;
+    width: 44rem;
+    height: 7.7rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.addRecipeBanner .content .diffLevelBox span {
+    font-family: 'Roboto Slab', 'sans-serif';
+    font-size: 2rem;
+    font-weight: 400;
+    color: #cfcfcf;
+    padding-left: 2.3rem;
+}
+
+.addRecipeBanner .content .diffLevelBox .dropdownBtn {
+    background-color: transparent;
+    border: none;
+    width: 43.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.addRecipeBanner .content .diffLevelBox .dropdownBtn .dropdownIcon {
+    color: #f1a81d;
+    font-size: 2.3rem;
+    padding-right: 0.8rem;
+    cursor: pointer;
+}
+
+/* dropdown box */
+.addRecipeBanner .content .diffLevelCont .dropdownBox {
+    display: none; /* remove this property when dropdown icon is clicked in js */
+    border: 2px solid #f1a81d;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.addRecipeBanner .content .dropdownBox ul li:first-child {
+    padding-top: 2.3rem;
+}
+
+.addRecipeBanner .content .dropdownBox ul li {
+    text-align: center;
+}
+
+.addRecipeBanner .content .dropdownBox ul li:last-child {
+    padding-bottom: 2.3rem;
+}
+
+.addRecipeBanner .content .dropdownBox ul li a button {
+    font-family: 'Roboto Slab', 'sans-serif';
+    font-weight: 600;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    color: #f1a81d;
+}
+
+.addRecipeBanner .content .recipeNameBox input[type="text"],
+.addRecipeBanner .content .postedByBox input[type="text"], 
+.addRecipeBanner .content .prepTimeBox input[type="number"],
+.addRecipeBanner .content .serveApproxBox input[type="number"],
+.addRecipeBanner .content .addiNotesBox input[type="text"] {
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 7.7rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+}
+
+.addRecipeBanner .content .recipeDescBox {
+    position: relative;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 7.75rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+    margin-top: 1.2rem;
+}
+
+.addRecipeBanner .content .recipeDescBox .recipeDescContent {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.addRecipeBanner .content .recipeDescIcon {
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-right: 2rem;
+}
+
+.addRecipeBanner .content .recipeDescBox .recipeDescContent span {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .recipeDescBox input[type="text"] {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 1rem;
+    bottom: 0;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 7.75rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.addRecipeBanner .content .ingrReqBox {
+    position: relative;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 12rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+}
+
+.addRecipeBanner .content .ingrReqBox .ingrReqContent {
+    padding-top: 2.5rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.addRecipeBanner .content .ingrReqIcon {
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-right: 2rem;
+}
+
+.addRecipeBanner .content .ingrReqBox .ingrReqContent span {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .ingrReqBox input[type="text"] {
+    display: none; /* remove this property when user clicks on the visible div to type something */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 12rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.addRecipeBanner .content .stepsToCookBox {
+    position: relative;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 26rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+}
+
+.addRecipeBanner .content .stepsToCookBox .stepsToCookContent {
+    padding-left: 1.5rem;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.addRecipeBanner .content .stepsToCookIcon {
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-right: 2rem;
+}
+
+.addRecipeBanner .content .stepsToCookBox .stepsToCookContent span {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .stepsToCookBox input[type="text"] {
+    display: none; /* remove this property when user clicks on the visible div to type something */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 26rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.addRecipeBanner .content .recImgUploadBox {
+    position: relative;
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 14rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+    padding-right: 1rem;
+}
+
+.addRecipeBanner .content .recImgUploadBox .recImgUploadContent {
+    padding-left: 1.5rem;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.addRecipeBanner .content .recImgUploadIcon {
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    padding-right: 2rem;
+}
+
+.addRecipeBanner .content .recImgUploadBox .recImgUploadContent span {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .recImgUploadBox input[type="file"] {
+    padding-left: 6.1rem;
+    padding-top: 2.3rem;
+    position: absolute;
+    left: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2.3rem;
+    color: #202020;
+}
+
+.addRecipeMargin {
+    margin-top: 8rem;
+}
+
+.addRecipeBanner .content .recipeNameBox input[value],
+.addRecipeBanner .content .diffLevelBox input[value], 
+.addRecipeBanner .content .prepTimeBox input[value],
+.addRecipeBanner .content .serveApproxBox input[value],
+.addRecipeBanner .content .recipeDescBox input[value],
+.addRecipeBanner .content .ingrReqBox input[value],
+.addRecipeBanner .content .stepsToCookBox input[value],
+.addRecipeBanner .content .addiNotesBox input[value] {
+    color: #202020;
+    padding-left: 6.1rem;
+}
+
+.addRecipeBanner .content .recipeNameBox input[type="text"]::placeholder, 
+.addRecipeBanner .content .diffLevelBox input[type="text"]::placeholder, 
+.addRecipeBanner .content .prepTimeBox input[type="number"]::placeholder,
+.addRecipeBanner .content .serveApproxBox input[type="number"]::placeholder,
+.addRecipeBanner .content .ingrReqBox input[type="text"]::placeholder,
+.addRecipeBanner .content .stepsToCookBox input[type="text"]::placeholder,
+.addRecipeBanner .content .addiNotesBox input[type="text"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .recipeDescBox input[type="text"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.addRecipeBanner .content .recipeNameBox input[type="text"]:focus, 
+.addRecipeBanner .content .diffLevelBox input[type="text"]:focus, 
+.addRecipeBanner .content .prepTimeBox input[type="number"]:focus,
+.addRecipeBanner .content .serveApproxBox input[type="number"]:focus,
+.addRecipeBanner .content .recipeDescBox input[type="text"]:focus,
+.addRecipeBanner .content .ingrReqBox input[type="text"]:focus,
+.addRecipeBanner .content .stepsToCookBox input[type="text"]:focus,
+.addRecipeBanner .content .addiNotesBox input[type="text"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.addRecipeBanner .content ul li .buttonsSect {
+    padding-top: 3rem; 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.addRecipeBanner .content ul li .cancelBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    color: #B8B8B8;
+}
+
+.addRecipeBanner .content ul li .cancelBtn:hover {
+    border: 2px solid #f1a81d;
+    border-radius: 5px;
+    transition: 0.35s;
+    cursor: pointer;
+    padding: 1.5rem 4rem;
+}
+
+.addRecipeBanner .content ul li .addRecipeBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 4rem;
+}
+
+.addRecipeBanner .content ul li .addRecipeBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/**** HOMEPAGE ****/
+.navBar {
+    position: sticky;
+    background-color: #fff;
+    z-index: 2;
+    top: 0;
+    /* border: 2px solid red; */
+    margin: auto;
+    padding: 2.5rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBar ul {
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navBar ul li {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 2.85rem;
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+}
+
+.navBar ul li a::after {
+    content: '';
+    height: 0.3rem;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navBar ul li a:hover::after {
+    width: 100%;
+    background-color: #f1a81d;
+}
+
+.navBar ul li a {
+    color: #000;
+}
+
+.logo {
+    padding-left: 2.2rem;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: #f1a81d;
+}
+
+.loginBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    padding: 1.3rem 4rem;
+    border-radius: 5px;
+    border: 2px solid #cfcfcf;
+}
+
+.loginBtn:hover {
+    border: 2px solid #f1a81d;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* when login, change item in nav bar to this */
+.navBar .profileImg {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 4.6rem;
+    height: 4.6rem;
+}
+
+.navBar .profileImg + i {
+    color: #202020;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    transition: color 0.3s;
+}
+
+.navBar .profileImg + i:hover {
+    color: #f1a81d;
+    cursor: pointer;
+}
+
+.navBar .dropdownBox {
+    position: relative;
+}
+
+.navBar .dropdownCont {
+    position: absolute;
+    left: -20.5rem;
+    right: 0;
+    margin-top: 15px;
+}
+
+.navBar .dropdownCont {
+    padding-left: 3rem;
+    padding-right: 2.2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3.15rem;
+    width: 28rem;
+    height: auto;
+    border-radius: 5px;
+    background-color: #f1a81d;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.navBar .dropdownCont a:first-child {
+    padding-top: 0rem;
+}
+
+.navBar .dropdownCont a {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: #fff;
+    display: block;
+    padding-top: 2.4rem;
+}
+
+.logoutBtn {
+    margin-top: 2.6rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #fff;
+    padding: 1.5rem 5.2rem;
+    border-radius: 5px;
+    color: #202020;
+}
+
+.logoutBtn:hover {
+    color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.signUpBtn {
+    margin-left: 2.2rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 4rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.signUpBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.promoBanner {
+    visibility: hidden;
+    background-color: #f1a81d;
+    width: 100%;
+    text-align: center;
+    padding: 1.8rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.promoBanner p {
+    flex-basis: 96%;
+    width: 100%;
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.promoBanner .closeIcon {
+    flex-basis: 4%;
+}
+
+.promoBanner .closeIcon .lines {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promoBanner .closeIcon .lines .line {
+    background-color: #fff;
+    width: 2.4rem;
+    height: 0.5rem;
+}
+
+.promoBanner .closeIcon .lines .line::after {
+    display: block;
+    content: '';
+    background-color: #fff;
+    width: 2.4rem;
+    height: 0.5rem;
+    margin-top: 1rem;
+}
+
+.promoBanner .closeIcon:hover {
+    cursor: pointer;
+}
+
+.promoBanner .closeIcon:hover > .lines > .line  {
+    transform: rotate(-45deg);
+    transition: 0.4s;
+    margin-top: 1rem;
+}
+
+.promoBanner .closeIcon:hover > .lines > .line::after  {
+    transform: rotate(90deg);
+    transition: 0.4s;
+    margin-top: 0rem;
+}
+
+.slideShow {
+    padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.slideShow .content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 87%;
+}
+
+.slideShow .slideImg {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+}
+
+.slideShow .slideImg .slide1 {
+    width: 100%;
+    height: 68rem;
+}
+
+.slideShow .dot {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 2.1rem;
+    margin-bottom: 2.7rem;
+}
+
+.slideShow .dot:nth-child(2) {
+    background-color: #bbb;
+}
+
+.slideShow .dot:last-child {
+    background-color: #bbb;
+}
+
+.featuredBanner {
+    padding-top: 7rem;
+    padding-bottom: 3.5rem;
+    text-align: center;
+    height: auto;
+}
+
+.featuredBanner h3 {
+    width: 100%;
+    position: relative;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.featuredBanner h3::after {
+    position: absolute;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+    content: '';
+    height: 0.55rem;
+    width: 20%;
+    background-color: #f1a81d;
+    position: absolute;
+    left: 39%;
+    bottom: -1.5rem;
+}
+
+.featuredBanner .content {
+    position: relative;
+    margin-top: 8rem;
+    width: 100%;
+}
+
+.featuredBanner .featuredImgs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.featuredBanner .featuredImg {
+    position: relative;
+    flex-basis: 82%;
+    height: 63.2rem;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/featured1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.featuredBanner .featuredImg:hover > .featuredTxtbox {
+    opacity: 1;
+    transform: translateY(-10rem);
+    transition: transform 0.7s;
+}
+
+.featuredBanner .featuredTxtbox {
+    opacity: 0;
+    left: 81rem;
+    top: 20rem;
+    padding-top: 4.4rem;
+    padding-bottom: 4.2rem;
+    width: 42.5%;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #fff;
+    height: auto;
+}
+
+.featuredBanner .featuredTxtbox h4 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 1.4;
+}
+
+.featuredBanner .featuredTxtbox p {
+    width: 68%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 1.3rem auto;
+    line-height: 1.5;
+}
+
+.readMoreBtn {
+    margin-top: 1.8rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.readMoreBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.categoriesSection {
+    margin-top: 5rem;
+    padding-bottom: 2.5rem;
+    height: 69rem;
+}
+
+.categoriesSection .content {
+    margin-top: 7.8rem;
+}
+
+.categoriesSection h3 {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.categoriesSection h3::after {
+    position: absolute;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+    content: '';
+    height: 0.55rem;
+    width: 15%;
+    background-color: #f1a81d;
+    position: absolute;
+    left: 41.5%;
+    bottom: -1.5rem;
+}
+
+.categoriesSection .categories {
+    padding: 0 4.8rem;
+    width: 100%;
+    height: 29vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.categoriesSection .categories .category {
+    height: 49rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 23.5%;
+    position: relative;
+}
+
+.categoriesSection .category .categoryTxt {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.categoriesSection .cat1 {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../img/chinesecategory.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.categoriesSection .cat2 {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../img/malaycategory.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.categoriesSection .cat3 {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../img/indiancategory.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.categoriesSection .cat4 {
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../img/eurasiancategory.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.categoriesSection .category:hover {
+    filter: brightness(2.3);
+    transition: filter 0.5s;
+    cursor: pointer;
+}
+
+.categoriesSection .category:hover > .categoryTxt > h5 {
+    transform: translateY(-25px);
+    transition: transform 0.4s;
+}
+
+.categoriesSection .category:hover > .categoryTxt > .goCategoryIcon {
+    display: block;
+    filter: brightness(0.5);
+    opacity: 1;
+    transform: translateY(-20px);
+    transition: filter 0.5s transform 0.4s opacity 0.4s;
+}
+
+.categoriesSection .category:hover
+> .categoryTxt h5 {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.categoriesSection .category h5 {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 3.3rem;
+}
+
+.categoriesSection .goCategoryIcon {
+    width: 5.1rem;
+    height: 5rem;
+    background-repeat: no-repeat;
+    background-image: url('../img/svg/goCategoryIcon.svg');
+    opacity: 0;
+}
+
+.popularSection {
+    margin-top: 4rem;
+    padding-bottom: 13rem;
+    height: auto;
+    text-align: center;
+}
+
+.popularSection h3 {
+    position: relative;
+    width: 100%;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.popularSection h3::after {
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 39%;
+    bottom: -2rem;
+    width: 20%;
+    background-color: #f1a81d;
+}
+
+.popularSection .content {
+    margin-top: 7rem;
+    width: 100%;
+}
+
+.popularSection .recipes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 16rem;
+}
+
+.popularSection .recipe {
+    position: relative;
+    flex-basis: 30%;
+    height: 72rem;
+    margin: 5.5rem 4rem;
+}
+
+.popularSection .recipe:first-child {
+    margin: 0rem 4rem;
+}
+
+.popularSection .recipe:hover {
+    cursor: pointer;
+    /* box-shadow: 0.2rem 1.5rem 2.5rem #f1a71d6c;
+    transition: box-shadow 0.35s; */
+}
+
+.popularSection .popularImg img {
+    filter: brightness(0.7);
+    width: 100%;
+    height: 35rem;
+}
+
+/* .popularSection .popular2 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular2.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.popularSection .popular3 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular3.png');;
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.popularSection .popular4 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular4.png');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+} */
+
+.popularSection .recipeTxtbox {
+    padding-top: 4.4rem;
+    padding-bottom: 4.2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(245, 245, 245);
+    height: auto;
+}
+
+.popularSection .recipeTxtbox h5 {
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    text-transform: capitalize;
+}
+
+.popularSection .recipeTxtbox .separator {
+    width: 0.85rem;
+    height: 0.85rem;
+    background-color: #f1a81d;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.25rem 1.1rem;
+}
+
+.popularSection .recipeTxtbox span {
+    margin-top: 1.45rem;
+    font-family: 'Poppins', serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: #b8b8b8;
+    text-transform: uppercase;
+}
+
+.popularSection .recipeTxtbox p {
+    width: 73%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 2rem auto;
+    line-height: 1.5;
+}
+
+.popularSection .recipeTxtbox p::first-letter {
+    text-transform: uppercase;
+}
+
+.popularSection .recipeTxtbox .clockIcon {
+    margin-top: 1.45rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    font-size: 2.4rem;
+    color: #f1a81d;
+}
+
+.popularSection .recipeTxtbox .readMoreBtn {
+    margin-top: 1.1rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.popularSection .recipeTxtbox .readMoreBtn:hover { 
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.popularSection .viewMoreBtn {
+    margin-top: 11rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.popularSection .viewMoreBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    /* top: 0; */
+    /* bottom: 0; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #282828;
+    padding-top: 4.2rem;
+    padding-bottom: 2.3rem;
+}
+
+footer .goBackUpBtn {
+    width: 5.1rem;
+    height: 5rem;
+    position: absolute;
+    top: -2.7rem;
+    background-color: transparent;
+    border: none;
+}
+
+footer .goBackUpBtn a:hover {
+    cursor: pointer;
+}
+
+.footerBar {
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 3.5rem;
+}
+
+.footerBar .logo {
+    text-align: center;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #f1a81d;
+    flex-basis: 20%;
+}
+
+.footerBar ul {
+    flex-basis: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerBar ul li {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 2.85rem;
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+}
+
+.footerBar ul li:nth-child(5) {
+    margin: 0 4rem;
+}
+
+.footerBar ul li a::after {
+    content: '';
+    height: 0.3rem;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.footerBar ul li a:hover::after {
+    width: 100%;
+    background-color: #f1a81d;
+}
+
+.footerBar ul li a {
+    color: #b8b8b8;
+}
+
+.footerBar .socialIcons {
+    flex-basis: 10.5%;
+}
+
+.footerBar .socialIcon {
+    padding-right: 3rem;
+    display: inline-block;
+    font-size: 2rem;
+    color: #f1a81d;
+}
+
+.footerBar .socialIcon:last-child {
+    padding-right: 0rem;
+}
+
+footer .copyrightTxt {
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding-top: 2rem;
+    color: #b8b8b8;
+    border-top: 1px solid #707070;
+    font-family: 'Roboto Slab', 'sans-serif';
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/**** SEARCH RESULTS PAGE ****/
+.searchSection {
+    margin-top: 6.8rem;
+    padding-bottom: 8.3rem;
+    height: auto;
+    text-align: center;
+}
+
+.topSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.searchTitle {
+    flex-basis: 37%;
+}
+
+.searchTitle h3 {
+    position: relative;
+    left: 16.7%;
+    width: 100%;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.searchTitle h3::after {
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 36.2%;
+    bottom: -2rem;
+    width: 22%;
+    background-color: #f1a81d;
+}
+
+/* search box */
+
+.searchBox {
+    position: relative;
+    flex-basis: 63%;
+    padding-top: 0.7rem;
+    /* padding-left: 15.5rem; */
+}
+
+.searchBox input[type="text"] {
+    border: 3px solid #cfcfcf;
+    width: 43.1rem;
+    height: 6.9rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.searchBox input[value] {
+    padding-left: 3rem;
+    color: #202020;
+}
+
+.searchBox input[type="text"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.searchBox input[type="text"]:focus + .searchBtn {
+    color: #f1a81d;
+    transition: 0.3s;
+}
+
+.searchBox input[type="text"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0rem;
+}
+
+.searchBox .searchBtn {
+    position: absolute;
+    top: 2.8rem;
+    left: 76.5rem;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #cfcfcf;
+}
+
+/* filter section */
+.searchSection .filterSect {
+    margin-top: 7.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.searchSection .filterSect ul {
+    margin-left: 20.8rem;
+    flex-basis: 69%;
+}
+
+.searchSection .filterSect ul::after {
+    margin-left: 19.2rem;
+    flex-basis: 62%;
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 18.8rem;
+    bottom: -2.1rem;
+    width: 60%;
+    background-color: #f1a71d6e;
+}
+
+.searchSection .filterSect ul li {
+    position: relative;
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 6.2rem;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 400;
+    font-size: 2.6rem;
+}
+
+.searchSection .filterSect ul li::after {
+    content: '';
+    height: 0.4rem;
+    position: absolute;
+    left: 0.3rem;
+    bottom: -2.3rem;
+    width: 73%;
+    /* background-color: #f1a81d; */
+}
+
+.searchSection > .filterSect ul button {
+    background-color: transparent;
+    border: none;
+}
+
+.searchSection > .filterSect ul .sortRecipeTitleBtn:hover,
+.searchSection > .filterSect ul .sortPrepTimeBtn:hover,
+.searchSection > .filterSect ul .sortDiffLevelBtn:hover,
+.searchSection > .filterSect ul .sortReviewsBtn:hover {
+    cursor: pointer;
+}
+
+.searchSection > .filterSect ul .sortRecipeTitleBtn:hover > li::after {
+    transform: translateX(-5px);
+    width: 65%;
+    background-color: #f1a71d87;
+}
+
+.searchSection > .filterSect ul .sortPrepTimeBtn:hover > li::after {
+    transform: translateX(-1px);
+    width: 55%;
+    background-color: #f1a71d87;
+}
+
+.searchSection > .filterSect ul .sortDiffLevelBtn:hover > li::after {
+    transform: translateX(0px);
+    width: 61%;
+    background-color: #f1a71d87;
+}
+
+.searchSection > .filterSect ul .sortReviewsBtn:hover > li::after {
+    transform: translateX(0px);
+    width: 65%;
+    background-color: #f1a71d87;
+}
+
+.searchSection .content {
+    margin-bottom: 1.7rem;
+    width: 100%;
+}
+
+.searchSection .recipes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    margin-bottom: 16rem;
+}
+
+.searchSection .recipesResults {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10rem;
+    margin-bottom: 22.5rem;
+}
+
+.searchSection .errorBox {
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchSection .errorBox h3 {
+    display: block;
+    width: 39%;
+    color: #202020;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.searchSection .recipe {
+    position: relative;
+    flex-basis: 30%;
+    height: 72rem;
+    margin: 5.5rem 4rem;
+}
+
+.searchSection .recipe:first-child {
+    margin: 0rem 4rem;
+}
+
+.searchSection .recipe:hover {
+    cursor: pointer;
+    /* box-shadow: 0.2rem 1.5rem 2.5rem #f1a71d6c;
+    transition: box-shadow 0.35s; */
+}
+
+.searchSection .recipeTxtbox {
+    padding-top: 4.4rem;
+    padding-bottom: 4.2rem;
+    width: 48.8rem;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(245, 245, 245);
+    height: auto;
+    left: 4.25rem;
+    bottom: 1rem;
+}
+
+.searchSection .searchImg .saveRecipeBtn {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    top: 2rem;
+    right: 2rem;
+    padding-top: 1.3rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    padding-bottom: 0.8rem;
+}
+
+.searchSection .searchImg .saveRecipeBtn:hover {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #f1a81d;
+}
+
+.searchSection .searchImg .saveRecipeBtn:hover i {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.searchSection .searchImg .saveRecipeBtn i {
+    color: rgba(0, 0, 0, 0.775);
+    font-size: 3.2rem;
+}
+
+.searchSection .searchImg {
+    position: relative;
+    z-index: 1;
+}
+
+.searchSection .searchImg img {
+    filter: brightness(0.7);
+    width: 48.8rem;
+    height: 35rem;
+}
+
+/* .searchSection .search2 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular2.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.searchSection .search3 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular3.png');;
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.searchSection .search4 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular4.png');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+} */
+
+.searchSection .recipeTxtbox h5 {
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    text-transform: capitalize;
+}
+
+.searchSection .recipeTxtbox .separator {
+    width: 0.85rem;
+    height: 0.85rem;
+    background-color: #f1a81d;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.25rem 1.1rem;
+}
+
+.searchSection .recipeTxtbox span {
+    margin-top: 1.45rem;
+    font-family: 'Poppins', serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: #b8b8b8;
+    text-transform: uppercase;
+}
+
+.searchSection .recipeTxtbox p {
+    width: 73%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 2rem auto;
+    line-height: 1.5;
+}
+
+.searchSection .recipeTxtbox p::first-letter {
+    text-transform: uppercase;
+}
+
+.searchSection .recipeTxtbox .clockIcon {
+    margin-top: 1.45rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    font-size: 2.4rem;
+    color: #f1a81d;
+}
+
+.searchSection .recipeTxtbox .readMoreBtn {
+    margin-top: 1.1rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.searchSection .recipeTxtbox .readMoreBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+}
+
+.searchSection .viewMoreBtn {
+    margin-top: 5rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.searchSection .viewMoreBtn:hover {
+    cursor: pointer;
+    background-color: #F09E02;
+    transition: 0.3s;
+}
+
+/**** SAVED RECIPES PAGE ****/
+.savedSection {
+    margin-top: 6.8rem;
+    padding-bottom: 8.3rem;
+    height: auto;
+    text-align: center;
+}
+
+.savedSection > .topSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.savedTitle {
+    flex-basis: 41.5%;
+}
+
+.savedTitle h3 {
+    position: relative;
+    left: 7rem;
+    width: 100%;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.savedTitle h3::after {
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 20%;
+    bottom: -2rem;
+    width: 25%;
+    background-color: #f1a81d;
+}
+
+/* filter section */
+.savedSection > .filterSect {
+    margin-top: 7.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.savedSection > .filterSect ul {
+    margin-left: 18.3rem;
+    flex-basis: 62%;
+}
+
+.savedSection > .filterSect ul::after {
+    margin-left: 19.2rem;
+    flex-basis: 62%;
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 0.3rem;
+    bottom: -2.3rem;
+    width: 56.7%;
+    background-color: #f1a71d6e;
+}
+
+.savedSection > .filterSect ul li {
+    position: relative;
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 6.2rem;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 400;
+    font-size: 2.6rem;
+}
+
+.savedSection > .filterSect ul li::after {
+    content: '';
+    height: 0.4rem;
+    position: absolute;
+    left: 0.3rem;
+    bottom: -2.3rem;
+    width: 52%;
+    background-color: #f1a81d;
+}
+
+.savedSection .content {
+    margin-bottom: 1.7rem;
+    width: 100%;
+}
+
+.savedSection .recipes {
+    margin-top: 10.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.savedSection .recipe {
+    position: relative;
+    flex-basis: 30%;
+    height: 72rem;
+    margin: 0 4rem;
+}
+
+.savedSection .recipe:nth-child(3), .savedSection .recipe:nth-child(4) {
+    margin-top: 6.7rem;
+}
+
+.savedSection .recipe:hover {
+    cursor: pointer;
+    /* box-shadow: 0.2rem 1.5rem 2.5rem #f1a71d6c;
+    transition: box-shadow 0.35s; */
+}
+
+.savedSection .recipeTxtbox {
+    padding-top: 4.4rem;
+    padding-bottom: 4.2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(245, 245, 245);
+    height: auto;
+}
+
+.savedSection .saved1 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../img/saved1.png');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.savedSection .saved2 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular2.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.savedSection .saved3 {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('../img/popular3.png');;
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.savedSection .saved4 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../img/saved4.png');
+    background-size: cover;
+    background-position: center;
+    width: 48.8rem;
+    height: 35rem;
+}
+
+.savedSection .recipeTxtbox h5 {
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.3;
+}
+
+.savedSection .recipeTxtbox .separator {
+    width: 0.85rem;
+    height: 0.85rem;
+    background-color: #f1a81d;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.25rem 1.1rem;
+}
+
+.savedSection .recipeTxtbox span {
+    margin-top: 1.45rem;
+    font-family: 'Poppins', serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: #b8b8b8;
+}
+
+.savedSection .recipeTxtbox p {
+    width: 73%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 2rem auto;
+    line-height: 1.5;
+}
+
+.savedSection .recipeTxtbox .clockIcon {
+    margin-top: 1.45rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    font-size: 2.4rem;
+    color: #f1a81d;
+}
+
+.savedSection .recipeTxtbox .readMoreBtn {
+    margin-top: 1.1rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.savedSection .recipeTxtbox .readMoreBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+}
+
+.savedSection .viewMoreBtn {
+    margin-top: 6.5rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.savedSection .viewMoreBtn:hover {
+    background-color: #F09E02;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/**** PROFILE PAGE ****/
+.profileSection {
+    padding-top: 10rem;
+    padding-bottom: 15rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.profileSect {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileSect .banner {
+    background-color: rgb(245, 245, 245);
+    width: 61.5rem;
+    height: 60rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+.profileSect .banner .content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: 4.2rem;
+}
+
+.profileSect .banner .profileImg {
+    display: block;
+    width: 13.8rem;
+    height: 13.8rem;
+    border-radius: 50%;
+}
+
+.profileSect .banner p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2.8rem;
+    color: #b8b8b8;
+    margin-top: 1.4rem;
+}
+
+.profileSect .banner h5 + p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 2.8rem;
+    color: #f1a81d;
+    margin-top: 0.1rem;
+}
+
+.profileSect .banner h5 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.4rem;
+    color: #202020;
+    margin-top: 2.3rem;
+}
+
+.profileSect .others {
+    margin-top: 3.7rem;
+    background-color: #f1a81d;
+    border-radius: 0px 5px 5px 0px;
+    width: 65.6rem;
+    height: 13.6rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.profileSect .others .savedDetails, .profileSect .others .postedDetails {
+    flex-basis: 50%;
+}
+
+.profileSect .others .heartIcon, .profileSect .others .recipeIcon {
+    font-size: 2.4rem;
+    color: #fff;
+    padding-right: 1rem;
+}
+
+.profileSect .others span {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #fff;
+}
+
+.profileSect .others span + p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #fff;
+}
+
+.particularsSect {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.particularsSect h5 {
+    position: relative;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.3rem;
+    color: #202020;
+    margin-right: 3.5rem;
+}
+
+.particularsSect h5::after {
+    position: absolute;
+    background-color: #f1a81d;
+    content: '';
+    width: 75%;
+    height: 0.55rem;
+    left: 0%;
+    bottom: -1.5rem;
+}
+
+.particularsSect .content {
+    margin-top: 7.8rem;
+}
+
+.particularsSect .content ul {
+   list-style-type: none;
+}
+
+.particularsSect .content ul li:first-child {
+    padding-top: 0rem;
+}
+
+.particularsSect .content ul li:last-child {
+    padding-top: 3.9rem;
+    padding-left: 29.6rem;
+}
+
+.particularsSect .content ul li {
+    padding-top: 4.4rem;
+}
+
+/* username box */
+
+.usernameBox, .emailBox, .passwordBox {
+    position: relative;
+}
+
+.particularsSect .content .usernameIcon, .particularsSect .content .emailIcon,.particularsSect .content .passwordIcon {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #f1a81d;
+    padding-top: 2.65rem;
+    padding-left: 2.2rem;
+}
+
+.usernameBox input[type="text"], .emailBox input[type="email"], .passwordBox input[type="password"] {
+    border: 3px solid #cfcfcf;
+    width: 44rem;
+    height: 7.7rem;
+    border-radius: 6px;
+    font-size: 2.3rem;
+}
+
+.usernameBox input[value], .emailBox input[value], .passwordBox input[value] {
+    font-family: 'Roboto Slab', 'sans-serif';
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f1a81d;
+    padding-left: 6.1rem;
+}
+
+.usernameBox input[type="text"]::placeholder, .emailBox input[type="email"]::placeholder, .passwordBox input[type="password"]::placeholder {
+    font-family: 'Roboto Slab', 'sans-serif';
+    color: #b8b8b8;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.usernameBox input[type="text"]:focus, 
+.emailBox input[type="email"]:focus, 
+.passwordBox input[type="password"]:focus {
+    border: 3px solid #f1a81d;
+    transition: 0.35s;
+}
+
+.usernameBox input[type="text"]:focus + .editBtn, 
+.emailBox input[type="email"]:focus + .editBtn, 
+.passwordBox input[type="password"]:focus + .editBtn {
+    color: #f1a81d;
+    transition: 0.3s;
+}
+
+.particularsSect .content .editBtn {
+    position: absolute;
+    top: 2.3rem;
+    left: 39rem;
+    background-color: transparent;
+    border: none;
+    font-size: 3.2rem;
+    color: #cfcfcf;
+}
+
+.particularsSect .content .saveBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 4rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.particularsSect .content .saveBtn:hover {
+    background-color: #F09E02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/**** MY RECIPES PAGE ****/
+.myRecipesSection {
+    margin-top: 6.8rem;
+    padding-bottom: 8.3rem;
+    height: auto;
+}
+
+.myRecipesSection > .topSect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.myRecipesTitle {
+    flex-basis: 45.7%;
+}
+
+.myRecipesTitle h3 {
+    position: relative;
+    left: 18.2rem;
+    width: 100%;
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #202020;
+}
+
+.myRecipesTitle h3::after {
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: 0.5%;
+    bottom: -2rem;
+    width: 27%;
+    background-color: #f1a81d;
+}
+
+/* add new recipe button */
+
+.myRecipesSection .topSect .addRecipeBox {
+    position: relative;
+    flex-basis: 54.3%;
+    padding-top: 0.7rem;
+    padding-left: 33rem;
+}
+
+.addRecipeBtn .recipeIcon {
+    padding-right: 1.2rem;
+}
+
+.myRecipesSection .addRecipeBtn {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 2.25rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.myRecipesSection .addRecipeBtn:hover {
+    background-color: #F09E02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* filter section */
+
+.myRecipesSection > .filterSect {
+    margin-top: 7.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.myRecipesSection > .filterSect ul {
+    margin-left: 18.3rem;
+    flex-basis: 40%;
+}
+
+.myRecipesSection > .filterSect ul::after {
+    margin-left: 19.2rem;
+    flex-basis: 40%;
+    content: '';
+    height: 0.55rem;
+    position: absolute;
+    left: -1rem;
+    bottom: -2.3rem;
+    width: 23.4%;
+    background-color: #f1a71d6e;
+}
+
+.myRecipesSection > .filterSect ul li {
+    position: relative;
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 6.2rem;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 400;
+    font-size: 2.6rem;
+}
+
+.myRecipesSection > .filterSect ul li::after {
+    content: '';
+    height: 0.4rem;
+    position: absolute;
+    left: 0.3rem;
+    bottom: -2.3rem;
+    width: 52%;
+}
+
+.myRecipesSection > .filterSect ul button {
+    background-color: transparent;
+    border: none;
+}
+
+.myRecipesSection > .filterSect ul .sortTitleBtn:hover, 
+.myRecipesSection > .filterSect ul .sortDateBtn:hover {
+    cursor: pointer;
+}
+
+.myRecipesSection > .filterSect ul .sortTitleBtn:hover > li::after {
+    transform: translateX(-5px);
+    width: 47%;
+    background-color: #f1a71d87;
+}
+
+.myRecipesSection > .filterSect ul .sortDateBtn:hover > li::after {
+    transform: translateX(-3.5px);
+    width: 60%;
+    background-color: #f1a71d87;
+}
+
+.myRecipesSection .content {
+    margin-bottom: 1.7rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.myRecipesSection .recipes {
+    margin-top: 10.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    flex-wrap: nowrap;
+}
+
+.myRecipesSection .recipes ul {
+    list-style-type: none;
+}
+
+.myRecipesSection .recipes ul li:first-child {
+    margin-top: 0rem;
+}
+
+.myRecipesSection .recipes ul li {
+    margin-top: 10rem;
+}
+
+.myRecipesSection .recipe {
+    width: 108.3rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    margin-left: 18.5rem;
+}
+
+.myRecipesSection .recipe:hover {
+    cursor: pointer;
+    /* box-shadow: 0.2rem 1.5rem 2.5rem #f1a71d6c;
+    transition: box-shadow 0.35s; */
+}
+
+.myRecipesSection .recipe .imgBox {
+    flex-basis: 20%;
+}
+
+.myRecipesSection .recipe .imgBox .myRecipeImg {
+    width: 75%;
+    height: 37rem;
+}
+
+.myRecipesSection .recipe .recipeDetails {
+    flex-grow: 1;
+    /* padding-left: 5.5rem; */
+    margin-right: 2rem;
+}
+
+.myRecipesSection .recipe .editRecipeBox {
+    flex-basis: 38%;
+    margin-right: 0.3rem;
+}
+
+.myRecipesSection .recipe .recipeDetails h5 {
+    font-family: 'Poppins', serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    text-transform: capitalize;
+}
+
+.myRecipesSection .recipe .recipeDetails p {
+    margin-top: 1.8rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5;
+    display: block;
+    width: 92%;
+}
+
+.myRecipesSection .recipe .recipeDetails p:first-letter {
+    text-transform: capitalize;
+
+}
+
+.myRecipesSection .recipe .recipeDetails .border {
+    border: 2px solid #cfcfcf;
+    margin-top: 3.5rem;
+    width: 92%;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button {
+    display: inline-block;
+    padding-right: 4.8rem;
+    margin-top: 2.6rem;
+    flex-basis: 32%;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button:last-child {
+    padding-right: 0rem;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button {
+    background: transparent;
+    border: none;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: #cfcfcf;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button i {
+    font-size: 2.4rem;
+    color: #cfcfcf;
+    margin-right: 1.3rem;
+    transition: color 0.3s;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button:hover > i {
+    color: #f1a81d;
+}
+
+.myRecipesSection .recipe .recipeDetails .buttonsSect button:hover {
+    color: #f1a81d;
+}
+
+.myRecipesSection .recipe .editRecipeBox {
+    position: relative;
+}
+
+.myRecipesSection .recipe .editRecipeBox .editRecipeBtn i {
+    padding-right: 1.2rem;
+}
+
+.myRecipesSection .recipe .editRecipeBox .editRecipeBtn {
+    position: absolute;
+    bottom: 7rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 2.2rem 2.5rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.myRecipesSection .recipe .editRecipeBox .editRecipeBtn:hover {
+    background-color: #F09E02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.myRecipesSection .viewMoreBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myRecipesSection .viewMoreBox .viewMoreBtn {
+    margin-top: 6.5rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    background-color: #f1a81d;
+    padding: 1.5rem 3.2rem;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.myRecipesSection .viewMoreBox .viewMoreBtn:hover {
+    background-color: #F09E02;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 6px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 4px;
+    }
+}

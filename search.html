@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search For A Recipe</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="inner" class="searchPage">
+        <nav class="navBar">
+            <a class="logo" href="index.html">RECIPE EXCHANGE</a>
+            <ul>
+                <li><a href="#">OUR PROMOTIONS</a></li>
+                <li><a href="#">CUISINES</a></li>
+                <li><a href="recipes.html">RECIPES</a></li> 
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">INGREDIENTS</a></li>
+                <a href="#"><button class="loginBtn">LOG IN</button></a>
+
+                <div class="dropdownBox hideBox">
+                    <img src="img/blankbg.png" href="profile.html" class="profileImg" alt="Image of a user">
+                    <i class="fa fa-chevron-down dropdownBtn"><a></a></i>
+                    <div class="dropdownCont hideBox">
+                        <a href="profile.html">View Profile</a>
+                        <a href="myrecipes.html">My Recipes</a>
+                        <a href="#">Saved Recipes</a>
+                        <a>Settings</a>
+                        <button class="logoutBtn">LOG OUT</button>
+                    </div>
+                    
+                </div>
+
+                <a href="#"><button class="signUpBtn">SIGN UP</button></a>     
+            </ul>
+        </nav>
+        <section class="searchSection">
+            <div class="topSect">
+                <div class="searchTitle">
+                </div>
+                <div class="searchBox">
+                    <input type="text" name="searchRecipe" value="" class="searchRecipe" placeholder="Search for a recipe, ingredient...">
+                    <button type="button" class="searchBtn"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div class="filterSect">
+                <ul>
+                    <a><button type="button" class="sortRecipeTitleBtn"><li>Recipe Title (A to Z)</li></button></a>
+                    <a><button type="button" class="sortPrepTimeBtn"><li>Prep Time</li></button></a>
+                    <a><button type="button" class="sortDiffLevelBtn"><li>Difficulty Level</li></button></a>
+                    <a><button type="button" class="sortReviewsBtn"><li>No. of Reviews</li></button></a>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="recipesResults">
+                    <!-- search recipes content is
+                    appended here -->
+                </div>
+                <!-- <a href="#"><button class="viewMoreBtn">VIEW MORE</button></a> -->
+            </div>
+        </section>
+        <footer>
+            <!-- <button type="button" class="goBackUpBtn"><a><img src="img/svg/goBackUpIcon.svg"></a></button> -->
+            <div class="footerBar">
+                <a class="logo">RECIPE EXCHANGE</a>
+                <ul>
+                    <li><a href="#">OUR PROMOTIONS</a></li>
+                    <li><a href="#">CUISINES</a></li>
+                    <li><a href="#">RECIPES</a></li> 
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                </ul>
+                <div class="socialIcons">
+                    <a class="socialIcon" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <p class="copyrightTxt">Copyright © 2021 Recipe Exchange</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

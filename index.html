@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Exchange - Home</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="inner">
+        <!-- 1. login pop up box (to append) -->
+        <section class="loginCont">
+            <div class="loginBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <a class="loginLogo">RECIPE EXCHANGE</a>
+                    <h6>Welcome back, stranger. Back for a cup of recipe, I hope?</h6>
+                    <ul>
+                        <li>
+                            <div class="emailBox">
+                                <button type="button" class="emailIcon"><i class="fa fa-envelope"></i></button>
+                                <input type="email" name="email" value="" class="email" placeholder="Email Address" required="required">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="passwordBox">
+                                <button type="button" class="passwordIcon"><i class="fa fa-lock"></i></button>
+                                <input type="password" name="password" value="" class="password" placeholder="Password" required="required">                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="bottomSect">
+                                <!-- somehow label containers can make checkbox states work?? -->
+                                <label class="rmbMeBox">
+                                    <input type="checkbox" name="rmbMe">
+                                    <span class="tickBox"></span>
+                                    <span class="tickMark"></span>
+                                    <p>Remember Me</p>
+                                </label>
+                                <p><a href="#">Forgot your password?</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <button type="button" class="loginBtn">LOGIN</button>
+                        </li>
+                        <li>
+                           <p>Not a part of us?<a href="#" onclick="return showSignUp();">SIGN UP</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- 2. signup pop up box (to append) -->
+        <section class="signUpCont">
+            <div class="signUpBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <a class="signUpLogo">RECIPE EXCHANGE</a>
+                    <h6>Sharing recipes with others around the world, fast.</h6>
+                    <ul>
+                        <li>
+                            <div class="firstNameBox">
+                                <button type="button" class="usernameIcon"><i class="fa fa-user-circle"></i></button>
+                                <input type="text" name="firstName" value="" class="firstName" placeholder="First Name" required="required">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lastNameBox">
+                                <button type="button" class="usernameIcon"><i class="fa fa-user-circle"></i></button>
+                                <input type="text" name="username" value="" class="lastName" placeholder="Last Name" required="required">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="usernameBox">
+                                <button type="button" class="usernameIcon"><i class="fa fa-user-circle"></i></button>
+                                <input type="text" name="username" value="" class="username" placeholder="Username" required="required">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="emailBox">
+                                <button type="button" class="emailIcon"><i class="fa fa-envelope"></i></button>
+                                <input type="email" name="email" value="" class="emailAdd" placeholder="Email Address" required="required">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="passwordBox">
+                                <button type="button" class="passwordIcon"><i class="fa fa-lock"></i></button>
+                                <input type="password" name="password" value="" class="passWord" placeholder="Password" required="required">                            
+                            </div>
+                        </li>
+                        <li>
+                            <button type="button" class="signUpBtn">SIGN UP</button>
+                        </li>
+                        <li>
+                           <p>Already have a account?<a href="#" onclick="return showLogin();">LOG IN</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- 3. subscribe to newsletter pop up box (to append) -->
+        <section class="subscribeCont">
+            <div class="subscribeBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <h4>Subscribe to our newsletter and get 10% off!</h4>
+                    <div class="subscribeBox">
+                        <input type="email" name="subscribeEmail" value="" placeholder="Email Address" class="subscribeEmail" required="required">
+                        <button type="button" class="subscribeBtn">SUBSCRIBE</button>
+                    </div>
+                    <!-- error msg to be appended here -->
+                </div>
+            </div>
+        </section>
+        <nav class="navBar">
+            <a class="logo" href="index.html">RECIPE EXCHANGE</a>
+            <ul>
+                <li><a href="#">OUR PROMOTIONS</a></li>
+                <li><a href="#">CUISINES</a></li>
+                <li><a href="recipes.html">RECIPES</a></li> 
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">INGREDIENTS</a></li>
+                <a href="#"><button class="loginBtn">LOG IN</button></a>
+                <div class="dropdownBox hideBox">
+                    <img src="img/blankbg.png" href="profile.html" class="profileImg" alt="Image of a user">
+                    <i class="fa fa-chevron-down dropdownBtn"><a></a></i>
+                    <div class="dropdownCont hideBox">
+                        <a href="profile.html">View Profile</a>
+                        <a href="myrecipes.html">My Recipes</a>
+                        <a href="#">Saved Recipes</a>
+                        <a>Settings</a>
+                        <button class="logoutBtn">LOG OUT</button>
+                    </div>
+                </div>
+                <a href="#"><button class="signUpBtn">SIGN UP</button></a>     
+            </ul>
+        </nav>
+        <section class="promoBanner">
+            <p>BUY OUR NEWSLETTER AND ENJOY A 20% DISCOUNT</p>
+            <a class="closeIcon">
+                <div class="lines">
+                    <div class="line"></div>
+                </div>
+            </a>
+        </section>
+        <header class="slideShow">
+            <div class="content">
+                <div class="slideImg">
+                    <img class="slide1" src="img/slide1.jpg">
+                    <!-- <img class="slide2" src="img/">
+                    <img class="slide3" src="img/"> -->  
+                </div>
+            </div>
+        </header>
+        <section class="featuredBanner">
+            <h3>FEATURED RECIPES</h3>
+            <div class="content">
+                <div class="featuredImgs">
+                    <div class="featuredImg">
+                        <div class="featuredTxtbox">
+                            <h4>6 HOUR EVENING <br>HOT WINGS</h4>
+                            <p>How about some wings to spice up your evening? Our newest recipe with a combination of hot sauce, wings that was marinated in lemon garnish, with just a touch of the evening sun, guarantees just that!</p>
+                            <a href="#"><button class="readMoreBtn">READ MORE</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="categoriesSection">
+            <h3>CATEGORIES</h3>
+            <div class="content">
+                <div class="categories">
+                    <div class="category cat1">
+                        <div class="categoryTxt">
+                            <h5>Chinese</h5>
+                            <a class="goCategoryIcon"></a>
+                        </div>
+                    </div>
+                    <div class="category cat2">
+                        <div class="categoryTxt">
+                            <h5>Malay</h5>
+                            <a class="goCategoryIcon"></a>
+                        </div>
+                    </div>
+                    <div class="category cat3">
+                        <div class="categoryTxt">
+                            <h5>Indian</h5>
+                            <a class="goCategoryIcon"></a>
+                        </div>
+                    </div>
+                    <div class="category cat4">
+                        <div class="categoryTxt">
+                            <h5>Eurasian</h5>
+                            <a class="goCategoryIcon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="popularSection">
+            <h3>POPULAR RECIPES</h3>
+            <div class="content">
+                <div class="recipes">
+                    <!-- recipes content is
+                    appended here -->
+                </div>
+                <!-- <a href="#"><button type="button" class="viewMoreBtn">VIEW MORE</button></a> -->
+            </div>
+        </section>
+        <footer>
+            <!-- <button type="button" class="goBackUpBtn"><a><img src="img/svg/goBackUpIcon.svg"></a></button> -->
+            <div class="footerBar">
+                <a class="logo">RECIPE EXCHANGE</a>
+                <ul>
+                    <li><a href="#">OUR PROMOTIONS</a></li>
+                    <li><a href="#">CUISINES</a></li>
+                    <li><a href="#">RECIPES</a></li> 
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                </ul>
+                <div class="socialIcons">
+                    <a class="socialIcon" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <p class="copyrightTxt">Copyright © 2021 Recipe Exchange</p>
+        </footer>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipes</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="inner">
+        <!-- 5. add new recipe pop up box (to append) -->
+        <section class="addRecipeCont">
+            <div class="addRecipeBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <img src="img/" alt="" class="addRecipeLogo">
+                    <h6>NEW RECIPE</h6>
+                    <div class="topSect">
+                        <div class="leftSect">
+                            <ul>
+                                <li>
+                                    <div class="recipeNameBox">
+                                        <button type="button" class="recipeIcon"><i class="fa fa-clipboard"></i></button>
+                                        <input type="text" name="recipeName" value="" class="recipeName" placeholder="Recipe Name" required>
+                                    </div>
+                                </li>
+                                <div class="postedByBox">
+                                    <input type="hidden" name="postedBy" value="" class="postedBy" placeholder="Posted ID" required>
+                                </div>
+                                <li>
+                                    <div class="diffLevelCont">
+                                        <div class="diffLevelBox">
+                                            <button type="button" class="diffLevelIcon" disabled><i class="fa fa-lock"></i><span class="diffLevelTxt">Select A Difficulty Level</span></button>
+                                            <button type="button" class="dropdownBtn"><i class="dropdownIcon fa fa-chevron-down"></i></button>
+                                        </div>
+                                        <div class="dropdownBox">
+                                            <ul>
+                                                <li><a href="#"><button type="button" class="easyBtn">Easy</button></a></li>
+                                                <li><a href="#"><button type="button" class="mediumBtn">Medium</button></a></li>
+                                                <li><a href="#"><button type="button" class="hardBtn">Hard</button></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="recipeDescBox">
+                                        <div class="recipeDescContent">
+                                            <button type="button" class="recipeDescIcon"><i class="fa fa-pencil"></i></button>
+                                            <span>Recipe Description (200 words max)</span>
+                                        </div>
+                                        <input type="text" name="recipeDesc" value="" class="recipeDesc" placeholder="Recipe Description (200 words max)" required>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="rightSect">
+                            <ul>
+                                <li>
+                                    <div class="prepTimeBox">
+                                        <button type="button" class="prepTimeIcon"><i class="fa fa-clock-o"></i></button>
+                                        <input type="number" name="prepTime" value="" class="prepTime" placeholder="Total Prep Time (in mins)" required>
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <div class="ingrReqBox">
+                                        <div class="ingrReqContent">
+                                            <button type="button" class="ingrReqIcon"><i class="fa fa-edit"></i></button>
+                                            <span>Ingredients Required</span>
+                                        </div>
+                                        <input type="text" name="ingrReq" value="" class="ingrReq" placeholder="Ingredients Required" required>
+                                    </div>
+                                </li> -->
+                                <li>
+                                    <div class="serveApproxBox">
+                                        <button type="button" class="serveApproxIcon"><i class="fa fa-users"></i></button>
+                                        <input type="number" name="serveApprox" value="" class="serveApprox" placeholder="Serves approx (e.g. 4)" required>
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <div class="stepsToCookBox">
+                                        <div class="stepsToCookContent">
+                                            <button type="button" class="stepsToCookIcon"><i class="fa fa-pencil"></i></button>
+                                            <span>Steps To Cook The Dish</span>
+                                        </div>
+                                        <input type="text" name="stepsToCook" value="" class="stepsToCook" placeholder="Steps To Cook The Dish" required>
+                                    </div>
+                                </li> -->
+                                <!-- <li>
+                                    <div class="recImgUploadBox">
+                                        <div class="recImgUploadContent">
+                                            <button type="button" class="recImgUploadIcon"><i class="fa fa-image"></i></button>
+                                            <span>Select A Image From Your Computer</span>
+                                        </div>
+                                        <input type="file" name="recImgUpload" value="">
+                                    </div>
+                                </li> -->
+                                <li>
+                                    <div class="addiNotesBox">
+                                        <button type="button" class="addiNotesIcon"><i class="fa fa-sticky-note"></i></button>
+                                        <input type="text" name="addiNotes" value="" class="addiNotes" placeholder="Additional Notes">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="buttonsSect">
+                                        <button type="button" class="cancelBtn">CANCEL</button>
+                                        <button type="button" class="addRecipeBtn">ADD RECIPE</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="navBar">
+            <a class="logo" href="index.html">RECIPE EXCHANGE</a>
+            <ul>
+                <li><a href="#">OUR PROMOTIONS</a></li>
+                <li><a href="#">CUISINES</a></li>
+                <li><a href="recipes.html">RECIPES</a></li> 
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">INGREDIENTS</a></li>
+                <a href="#"><button class="loginBtn">LOG IN</button></a>
+
+                <div class="dropdownBox hideBox">
+                    <img src="img/blankbg.png" href="profile.html" class="profileImg" alt="Image of a user">
+                    <i class="fa fa-chevron-down dropdownBtn"><a></a></i>
+                    <div class="dropdownCont hideBox">
+                        <a href="profile.html">View Profile</a>
+                        <a href="myrecipes.html">My Recipes</a>
+                        <a href="#">Saved Recipes</a>
+                        <a>Settings</a>
+                        <button class="logoutBtn">LOG OUT</button>
+                    </div>
+                </div>
+                <a href="#"><button class="signUpBtn">SIGN UP</button></a>     
+            </ul>
+        </nav>
+        <section class="myRecipesSection">
+            <div class="topSect">
+                <div class="myRecipesTitle">
+                    <h3>MY RECIPES</h3>
+                </div>
+                <div class="addRecipeBox">
+                    <button type="button" class="addRecipeBtn"><i class="recipeIcon fa fa-clipboard"></i>NEW RECIPE</button>
+                </div>
+            </div>
+            <div class="filterSect">
+                <ul>
+                    <a><button type="button" class="sortTitleBtn"><li>Recipe Title (A to Z)</li></button></a>
+                    <a><button type="button" class="sortDateBtn"><li>Date Posted</li></button></a>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="recipes">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="viewMoreBox">
+                <!-- <a href="#"><button class="viewMoreBtn">VIEW MORE</button></a> -->
+            </div>
+        </section>
+        <footer>
+            <!-- <button type="button" class="goBackUpBtn"><a><img src="img/svg/goBackUpIcon.svg"></a></button> -->
+            <div class="footerBar">
+                <a class="logo">RECIPE EXCHANGE</a>
+                <ul>
+                    <li><a href="#">OUR PROMOTIONS</a></li>
+                    <li><a href="#">CUISINES</a></li>
+                    <li><a href="#">RECIPES</a></li> 
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                </ul>
+                <div class="socialIcons">
+                    <a class="socialIcon" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <p class="copyrightTxt">Copyright © 2021 Recipe Exchange</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/myrecipes.js"></script>
+</body>
+</html>

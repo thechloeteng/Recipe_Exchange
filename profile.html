@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipes</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="inner">
+        <!-- 4. are you sure you want to...? pop up box (to append) -->
+        <section class="confirmUsernameChangeCont hideBox">
+            <div class="confirmChangeBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <img src="img/" alt="" class="confirmChangeLogo">
+                    <h6>Are you sure you want to change this?</h6>
+                    <ul>
+                        <li>
+                            <div class="usernameBox">
+                                <button type="button" class="usernameIcon"><i class="fa fa-user-circle"></i></button>
+                                <input type="text" name="curUsername" value="" placeholder="Current Username" disabled required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="usernameBox" id="usernameErrorBox">
+                                <button type="button" class="usernameIcon"><i class="fa fa-user-circle"></i></button>
+                                <input type="text" name="newUsername" value="" placeholder="New Username" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="buttonsSect">
+                                <button type="button" class="cancelBtn">CANCEL</button>
+                                <button type="button" class="saveBtn">SAVE</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. are you sure you want to...? pop up box (to append) -->
+        <section class="confirmEmailChangeCont hideBox">
+            <div class="confirmChangeBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <img src="img/" alt="" class="confirmChangeLogo">
+                    <h6>Are you sure you want to change this?</h6>
+                    <ul>
+                        <li>
+                            <div class="emailBox">
+                                <button type="button" class="emailIcon"><i class="fa fa-envelope"></i></button>
+                                <input type="email" name="curEmail" value="" placeholder="Current Email" disabled required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="emailBox" id="emailErrorBox">
+                                <button type="button" class="emailIcon"><i class="fa fa-envelope"></i></button>
+                                <input type="email" name="newEmail" value="" placeholder="New Email" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="buttonsSect">
+                                <button type="button" class="cancelBtn">CANCEL</button>
+                                <button type="button" class="saveBtn">SAVE</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. are you sure you want to...? pop up box (to append) -->
+        <section class="confirmPasswordChangeCont hideBox">
+            <div class="confirmChangeBanner">
+                <button type="button" class="closeBtn"><i class="closeIcon fa fa-times"></i></button>
+                <div class="content">
+                    <img src="img/" alt="" class="confirmChangeLogo">
+                    <h6>Are you sure you want to change this?</h6>
+                    <ul>
+                        <li>
+                            <div class="passwordBox">
+                                <button type="button" class="passwordIcon"><i class="fa fa-lock"></i></button>
+                                <input type="password" name="curPassword" value="" placeholder="Current Password" disabled required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="passwordBox" id="passwordErrorBox">
+                                <button type="button" class="passwordIcon"><i class="fa fa-lock"></i></button>
+                                <input type="password" name="newPassword" value="" placeholder="New Password" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="buttonsSect">
+                                <button type="button" class="cancelBtn">CANCEL</button>
+                                <button type="button" class="saveBtn">SAVE</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <nav class="navBar">
+            <a class="logo" href="index.html">RECIPE EXCHANGE</a>
+            <ul>
+                <li><a href="#">OUR PROMOTIONS</a></li>
+                <li><a href="#">CUISINES</a></li>
+                <li><a href="recipes.html">RECIPES</a></li> 
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">INGREDIENTS</a></li>
+                <a href="#"><button class="loginBtn">LOG IN</button></a>
+
+                <div class="dropdownBox hideBox">
+                    <img src="img/blankbg.png" href="profile.html" class="profileImg" alt="Image of a user">
+                    <i class="fa fa-chevron-down dropdownBtn"><a></a></i>
+                    <div class="dropdownCont hideBox">
+                        <a href="profile.html">View Profile</a>
+                        <a href="myrecipes.html">My Recipes</a>
+                        <a href="#">Saved Recipes</a>
+                        <a>Settings</a>
+                        <button class="logoutBtn">LOG OUT</button>
+                    </div>
+                    
+                </div>
+
+                <a href="#"><button class="signUpBtn">SIGN UP</button></a>     
+            </ul>
+        </nav>
+
+        <section class="profileSection">
+            
+        </section>
+
+        <footer>
+            <!-- <button type="button" class="goBackUpBtn"><a><img src="img/svg/goBackUpIcon.svg"></a></button> -->
+            <div class="footerBar">
+                <a class="logo">RECIPE EXCHANGE</a>
+                <ul>
+                    <li><a href="#">OUR PROMOTIONS</a></li>
+                    <li><a href="#">CUISINES</a></li>
+                    <li><a href="#">RECIPES</a></li> 
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                </ul>
+                <div class="socialIcons">
+                    <a class="socialIcon" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="socialIcon" href="#"><i class="fa fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <p class="copyrightTxt">Copyright © 2021 Recipe Exchange</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
+</body>
+</html>
